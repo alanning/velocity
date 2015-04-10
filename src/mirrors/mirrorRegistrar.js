@@ -21,6 +21,17 @@ DEBUG = !!process.env.VELOCITY_DEBUG;
   Meteor.methods({
 
     /**
+     * Exposes the IS_MIRROR flag to code running in a mirror
+     *
+     * @method velocity/isMirror
+     * @for Meteor.methods
+     * @return {Boolean} true if currently running in mirror
+     */
+    'velocity/isMirror': function () {
+      return !!process.env.IS_MIRROR;
+    },
+
+    /**
      * Meteor method: velocity/parentHandshake
      * This is the best indicator of the mirror's ready status, so it's used to inform the user
      * when there may be delays
